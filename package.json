@@ -1,0 +1,32 @@
+{
+    "name": "martin-havala",
+    "version": "1",
+    "scripts": {
+        "dev": "vite dev",
+        "build": "vite build",
+        "preview": "vite preview",
+        "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+        "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
+    },
+    "devDependencies": {
+        "@neoconfetti/svelte": "^1.0.0",
+        "@sveltejs/adapter-static": "^2.0.2",
+        "@sveltejs/kit": "^1.5.0",
+        "@types/cookie": "^0.5.1",
+        "@types/d3": "^7.4.0",
+        "@types/topojson-client": "^3.1.1",
+        "date-picker-svelte": "^2.3.0",
+        "node-sass": "^8.0.0",
+        "sass": "^1.62.0",
+        "svelte": "^3.54.0",
+        "svelte-check": "^3.0.1",
+        "tslib": "^2.4.1",
+        "typescript": "^5.0.0",
+        "vite": "^4.2.0"
+    },
+    "type": "module",
+    "dependencies": {
+        "d3": "^7.8.4",
+        "d3-geo-projection": "4.0.0"
+    }
+}
