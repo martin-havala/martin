@@ -3,6 +3,13 @@ import { onlyUnique } from '$lib/utils/array';
 export const SELECTED_TECH = 'selectedTech';
 export const CV_JOBS = [
     {
+        employee: 'SuperScale s. r. o.',
+        location: 'remote',
+        interval: [2023],
+        tasks: 'analysis and development of intenal portal',
+        tech: ['Angular', 'ngPrimes', 'Sass', 'Jest', 'Puppeteer', 'GitHub', 'D3.js'],
+    },
+    {
         employee: 'ERNI (Slovakia) s.r.o.',
         location: 'Bratislava',
         parttime: '32h',
@@ -105,8 +112,8 @@ const techs = [
     { name: 'SVG', group: 0 },
     { name: 'Java', group: 1 },
     { name: 'SQL', group: 1 },
-    { name: 'Unit Testing', group: 2 },
-    { name: 'BitBucket + Jira + Conflucence', group: 2 },
+    { name: 'Testing', group: 2 },
+    { name: 'BitBucket + Jira + Confluence', group: 2 },
     { name: 'Git', group: 2 },
     { name: 'Python', group: 2 },
 ];
@@ -115,20 +122,9 @@ export const TECH_GRPS: { [tech: string]: string[] } = {
     HTML: ['Angular', 'AngularJS', 'jQuery', 'Svelte', 'VueJS', 'D3.js'],
     CSS: ['VueJS', 'D3.js', 'HTML', 'Sass', 'Less'],
     JavaScript: ['Angular', 'AngularJS', 'jQuery', 'Svelte', 'VueJS', 'D3.js'],
-    'HTML / CSS / JS': [
-        'Angular',
-        'AngularJS',
-        'D3.js',
-        'HTML',
-        'jQuery',
-        'Less',
-        'Sass',
-        'Svelte',
-        'VueJS',
-        'NuxtJS',
-    ],
+    'HTML / CSS / JS': ['Angular', 'AngularJS', 'D3.js', 'HTML', 'jQuery', 'Less', 'Sass', 'Svelte', 'VueJS', 'NuxtJS'],
     TypeScript: ['Angular', 'AngularJS', 'VueJS', 'NuxtJS', 'Svelte', 'SvelteKit'],
-    'Unit Testing': ['Karma', 'Jest', 'Spectator', 'Jasmine', 'PHPUnit'],
+    Testing: ['Karma', 'Jest', 'Spectator', 'Jasmine', 'PHPUnit', 'Puppeteer'],
     RxJS: ['Angular'],
     'Svelte + SvelteKit': ['Svelte', 'SvelteKit'],
     'Less / SASS': ['Less', 'Sass'],
@@ -138,9 +134,9 @@ export const TECH_GRPS: { [tech: string]: string[] } = {
     Angular: ['Angular', 'Angular Material'],
     BitBucket: ['Attlasian BB+C+J'],
     Jira: ['Attlasian BB+C+J'],
-    Conflucence: ['Attlasian BB+C+J'],
-    'BitBucket + Jira + Conflucence': ['Attlasian BB+C+J'],
-    Git: ['Attlasian BB+C+J'],
+    Confluence: ['Attlasian BB+C+J'],
+    'BitBucket + Jira + Confluence': ['Attlasian BB+C+J'],
+    Git: ['Attlasian BB+C+J','GitHub'],
     Java: ['Java', 'Java2EE', 'JasperReports'],
     SQL: ['SQL', 'IBM DB2'],
 };
@@ -153,9 +149,9 @@ let hlp = [];
             const allTechs = TECH_GRPS[tech] ? [...TECH_GRPS[tech], tech] : [tech];
             if (job.tech.filter((j) => allTechs.includes(j)).length > 0) {
                 return [
-                    ...Array((job.interval[1] ?? year) - job.interval[0])
+                    ...Array((job.interval[1] ?? (year+1)) - job.interval[0])
                         .fill(0)
-                        .map((_, i) => i + job.interval[0] + 1),
+                        .map((_, i) => Math.min(year,i + job.interval[0] + 1)),
                     ...years,
                 ]
                     .sort()

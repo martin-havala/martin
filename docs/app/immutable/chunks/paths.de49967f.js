@@ -1,0 +1,1 @@
+var a;const t=((a=globalThis.__sveltekit_17ualr3)==null?void 0:a.base)??"/martin";var s;const e=((s=globalThis.__sveltekit_17ualr3)==null?void 0:s.assets)??"https://martin-havala.github.io/martin";export{e as a,t as b};
