@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { base } from '$app/paths';
     import Connections from '../components/cv/connections.svelte';
     import Cv from '../components/cv/cv.svelte';
     import Hobbies from '../components/cv/hobbies.svelte';
@@ -12,7 +13,10 @@
     <title>Martin Havala</title>
 </svelte:head>
 
-<button class='noprint' on:click={() => (lightMode = !lightMode)}>{lightMode ? '☽' : '☀'}</button>
+<div  class='noprint'>
+    <a href="{base}/Martin_Havala_CV.pdf" target="_parent">download as PDF</a>
+    <button on:click={() => (lightMode = !lightMode)}>{lightMode ? '☽' : '☀'}</button>
+</div>
 <Connections />
 <div class="grid">
     <div class="column">
@@ -27,16 +31,20 @@
 <div class="noprint rect {lightMode ? 'white' : 'dark'} " />
 
 <style lang="scss">
-    button {
-        font-size: 3ex;
+    .noprint {
+        font-size: 80%;
         position: absolute;
-        top: 1ex;
-        right: 1ex;
+        top: 2rex;
+        right: 2rex;
+    }
+    
+    button{
+        font-size: 3rex;
         text-align: center;
-        width: 3ex;
-        height: 3ex;
-        line-height: 3ex;
-        margin: 0;
+        width: 4rex;
+        height: 4rex;
+        line-height: 3rex;
+        margin: 0 0 0 5rex;
         padding: 0;
         border: none;
         border-radius: 50%;

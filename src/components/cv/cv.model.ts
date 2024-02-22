@@ -7,7 +7,7 @@ export const CV_JOBS = [
         location: 'remote',
         interval: [2023],
         tasks: 'analysis and development of intenal portal',
-        tech: ['Angular', 'ngPrimes', 'Sass', 'Jest', 'Puppeteer', 'GitHub', 'D3.js'],
+        tech: ['Angular', 'RxJs', 'primeNg', 'Sass', 'Jest', 'GitHub', 'Attlasian BB+C+J'],
     },
     {
         employee: 'ERNI (Slovakia) s.r.o.',
@@ -136,7 +136,7 @@ export const TECH_GRPS: { [tech: string]: string[] } = {
     Jira: ['Attlasian BB+C+J'],
     Confluence: ['Attlasian BB+C+J'],
     'BitBucket + Jira + Confluence': ['Attlasian BB+C+J'],
-    Git: ['Attlasian BB+C+J','GitHub'],
+    Git: ['Attlasian BB+C+J', 'GitHub'],
     Java: ['Java', 'Java2EE', 'JasperReports'],
     SQL: ['SQL', 'IBM DB2'],
 };
@@ -149,9 +149,9 @@ let hlp = [];
             const allTechs = TECH_GRPS[tech] ? [...TECH_GRPS[tech], tech] : [tech];
             if (job.tech.filter((j) => allTechs.includes(j)).length > 0) {
                 return [
-                    ...Array((job.interval[1] ?? (year+1)) - job.interval[0])
+                    ...Array((job.interval[1] ?? year + 1) - job.interval[0])
                         .fill(0)
-                        .map((_, i) => Math.min(year,i + job.interval[0] + 1)),
+                        .map((_, i) => Math.min(year, i + job.interval[0] + 1)),
                     ...years,
                 ]
                     .sort()
