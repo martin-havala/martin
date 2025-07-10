@@ -3,9 +3,28 @@ import { onlyUnique } from "$lib/utils/array";
 export const SELECTED_TECH = "selectedTech";
 export const CV_JOBS = [
   {
+    employee: "SmartHead s. r. o.",
+    location: "remote (Slovakia)",
+    interval: [2025],
+    tasks: "analysis and development of internal portal",
+    tech: [
+      "Angular",
+      "RxJs",
+      "Apache Echarts",
+      "SVG",
+      "ngZorro",
+      "Sass",
+      "Jest",
+      "GitHub",
+      "Storybook",
+      "Spectator",
+      "Attlasian BB+C+J",
+    ],
+  },
+  {
     employee: "SuperScale s. r. o.",
     location: "remote (Slovakia)",
-    interval: [2023],
+    interval: [2023, 2025],
     tasks:
       "analysis and development of internal portal & data visualization library",
     tech: [
@@ -30,6 +49,7 @@ export const CV_JOBS = [
     tech: [
       "Angular",
       "Angular Material",
+      "Akita",
       "RxJs",
       "Sass",
       "Jest",

@@ -1,7 +1,3 @@
-<script>
-    import { base } from '$app/paths';
-</script>
-
 <div class="profile">
     <h1>Martin Havala</h1>
     <div class="networks">
