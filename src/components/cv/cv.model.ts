@@ -5,7 +5,7 @@ export const CV_JOBS = [
   {
     employee: "SmartHead s. r. o.",
     location: "remote (Slovakia)",
-    interval: [2025],
+    interval: [2025,2025],
     tasks: "analysis and development of internal portal",
     tech: [
       "Angular",
@@ -18,7 +18,7 @@ export const CV_JOBS = [
       "GitHub",
       "Storybook",
       "Spectator",
-      "Attlasian BB+C+J",
+      "Atlassian BB+C+J",
     ],
   },
   {
@@ -37,7 +37,7 @@ export const CV_JOBS = [
       "Jest",
       "GitHub",
       "Storybook",
-      "Attlasian BB+C+J",
+      "Atlassian BB+C+J",
     ],
   },
   {
@@ -55,7 +55,7 @@ export const CV_JOBS = [
       "Jest",
       "Spectator",
       "Storybook",
-      "Attlasian BB+C+J",
+      "Atlassian BB+C+J",
       "D3.js",
     ],
   },
@@ -90,7 +90,7 @@ export const CV_JOBS = [
       "Leaflet",
       "Karma",
       "Jasmine",
-      "Attlasian BB+C+J",
+      "Atlassian BB+C+J",
     ],
   },
 
@@ -199,11 +199,11 @@ export const TECH_GRPS: { [tech: string]: string[] } = {
   NgRx: ["Angular"],
   SVG: ["SVG", "D3.js"],
   Angular: ["Angular", "Angular Material"],
-  BitBucket: ["Attlasian BB+C+J"],
-  Jira: ["Attlasian BB+C+J"],
-  Confluence: ["Attlasian BB+C+J"],
-  "BitBucket + Jira + Confluence": ["Attlasian BB+C+J"],
-  Git: ["Attlasian BB+C+J", "GitHub"],
+  BitBucket: ["Atlassian BB+C+J"],
+  Jira: ["Atlassian BB+C+J"],
+  Confluence: ["Atlassian BB+C+J"],
+  "BitBucket + Jira + Confluence": ["Atlassian BB+C+J"],
+  Git: ["Atlassian BB+C+J", "GitHub"],
   Java: ["Java", "Java2EE", "JasperReports"],
   SQL: ["SQL", "IBM DB2"],
 };
