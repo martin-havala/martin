@@ -51,6 +51,7 @@ export const CV_JOBS = [
       "Angular Material",
       "Akita",
       "RxJs",
+      "NgRx",
       "Sass",
       "Jest",
       "Spectator",
@@ -154,6 +155,7 @@ const techs = [
   { name: "Angular", group: 0 },
   { name: "Angular Material", group: 0 },
   { name: "RxJs", group: 0 },
+  { name: "State Management", group: 0 },
   { name: "Less / SASS", group: 0 },
   { name: "D3.js", group: 0 },
   { name: "Svelte + SvelteKit", group: 0 },
@@ -170,6 +172,7 @@ const techs = [
 export const TECH_GRPS: { [tech: string]: string[] } = {
   HTML: ["Angular", "AngularJS", "jQuery", "Svelte", "VueJS", "D3.js"],
   CSS: ["VueJS", "D3.js", "HTML", "Sass", "Less"],
+  "State Management":["Akita", "NgRx"],
   JavaScript: ["Angular", "AngularJS", "jQuery", "Svelte", "VueJS", "D3.js"],
   "HTML / CSS / JS": [
     "Angular",
