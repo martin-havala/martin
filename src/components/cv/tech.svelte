@@ -1,6 +1,10 @@
 <script lang="ts">
     import { TECHS } from './cv.model';
-    export let selectedTech: string | null = null;
+    interface Props {
+        selectedTech?: string | null;
+    }
+
+    let { selectedTech = $bindable(null) }: Props = $props();
     const year = new Date().getUTCFullYear() - 2;
 </script>
 
@@ -11,12 +15,12 @@
             <hr />
         {/if}
 
-        <div class="tech" on:mouseenter={() => (selectedTech = tech.name)} on:mouseleave={() => (selectedTech = null)}>
+        <div class="tech" onmouseenter={() => (selectedTech = tech.name)} onmouseleave={() => (selectedTech = null)}>
             <!-- <span class="prefix" title={TECH_GRP_NAMES[tech.group].lng}>{TECH_GRP_NAMES[tech.group].shrt}</span> -->
             <span class="name" style="opacity: {1 - (year - (tech.lastWorkUsed || tech.lastUsed)) / 10}"
                 >{tech.name}</span
             >
-            <span class="spacer" />
+            <span class="spacer"></span>
             <span
                 class="years"
                 title={`Practiced for ${tech.workYears} years, last used in ${Math.max(

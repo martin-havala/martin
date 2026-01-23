@@ -5,8 +5,8 @@
     import Hobbies from '../components/cv/hobbies.svelte';
     import Tech from '../components/cv/tech.svelte';
 
-    let selectedTech: string | null = null;
-    let lightMode = false;
+    let selectedTech: string | null = $state(null);
+    let lightMode = $state(false);
 </script>
 
 <svelte:head>
@@ -15,7 +15,7 @@
 
 <div  class='noprint'>
     <a href="{base}/Martin_Havala_CV.pdf" target="_parent">download as PDF</a>
-    <button on:click={() => (lightMode = !lightMode)}>{lightMode ? '☽' : '☀'}</button>
+    <button onclick={() => (lightMode = !lightMode)}>{lightMode ? '☽' : '☀'}</button>
 </div>
 <Connections />
 <div class="grid">
@@ -28,7 +28,7 @@
     </div>
     <!-- <Datavis /> -->
 </div>
-<div class="noprint rect {lightMode ? 'white' : 'dark'} " />
+<div class="noprint rect {lightMode ? 'white' : 'dark'} "></div>
 
 <style lang="scss">
     .noprint {

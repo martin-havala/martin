@@ -1,16 +1,21 @@
-<script>
+<script lang="ts">
     import { goto } from '$app/navigation';
     import { base } from '$app/paths';
+    interface Props {
+        children?: import('svelte').Snippet;
+    }
+
+    let { children }: Props = $props();
 </script>
 
 <div class="body">
     <header>
-        <!-- svelte-ignore a11y-click-events-have-key-events -->
-        <span on:click={() => goto(base || '/')}>←</span>
+        <!-- svelte-ignore a11y_click_events_have_key_events -->
+        <span onclick={() => goto(base || '/')}>←</span>
         <a href={base || '/'}>← back home</a>
     </header>
     <div class="content">
-        <slot />
+        {@render children?.()}
     </div>
 </div>
 

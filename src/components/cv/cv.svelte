@@ -1,9 +1,13 @@
 <script lang="ts">
     import { CV_JOBS, TECH_GRPS } from './cv.model';
-    export let selectedTech: string | null;
+    interface Props {
+        selectedTech: string | null;
+    }
 
-    $: allTechs =
-        !!selectedTech && TECH_GRPS[selectedTech] ? [...TECH_GRPS[selectedTech], selectedTech] : [selectedTech];
+    let { selectedTech }: Props = $props();
+
+    let allTechs =
+        $derived(!!selectedTech && TECH_GRPS[selectedTech] ? [...TECH_GRPS[selectedTech], selectedTech] : [selectedTech]);
 </script>
 
 <section>
