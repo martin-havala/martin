@@ -17,6 +17,13 @@
 
     <div
       class="tech"
+      style="opacity: {Math.max(
+        1 - (year - Math.max(tech.lastWorkUsed, tech.lastUsed)) / 20,
+        0.5,
+      )}; font-style:{Math.max(tech.lastWorkUsed, tech.lastUsed) >
+      new Date().getUTCFullYear() - 3
+        ? 'normal'
+        : 'italic'}"
       aria-roledescription="hovering this element highlights valid experience in the job listing"
       aria-label={`Technology: ${tech.name}, practiced for ${tech.workYears} years`}
       role="contentinfo"
@@ -24,11 +31,8 @@
       onmouseleave={() => (selectedTech = null)}
     >
       <!-- <span class="prefix" title={TECH_GRP_NAMES[tech.group].lng}>{TECH_GRP_NAMES[tech.group].shrt}</span> -->
-      <span
-        class="name"
-        style="opacity: {1 -
-          (year - (tech.lastWorkUsed || tech.lastUsed)) / 10}">{tech.name}</span
-      >
+      <span class="name">{tech.name}</span>
+
       <span class="spacer"></span>
       <span
         class="years"
@@ -37,30 +41,43 @@
           tech.lastUsed,
         )}`}
       >
-        <span
-          style="opacity: {1 -
-            (year - (tech.lastWorkUsed || tech.lastUsed)) / 10}"
+        <span class="professionally-used"
           >{Array(tech.workYears - tech.hobbyYears)
-            .fill("░")
-            .join("")}</span
-        ><span style="opacity: {1 - (year - tech.lastUsed) / 10}"
-          >{Array(tech.hobbyYears).fill("▒").join("")}</span
+            .fill("▮")
+            .join("")}
+        </span>
+        {#if tech.workYears - tech.hobbyYears > 0}
+          <small
+            >{tech.workYears -
+              tech.hobbyYears}{#if tech.hobbyYears > 0}+{tech.hobbyYears}{/if}
+          </small>
+        {/if}
+        <span class="hobby-used"
+          >{Array(tech.hobbyYears).fill("▯").join("")}</span
         >
       </span>
     </div>
   {/each}
   <div class="legend">
-    <span style="font-size:.9em;">* approx. usage</span>
+    <div style="font-size:.9em;">
+      <span> * approx. usage in years</span>
+      <span class="end">professionally</span><span class="end years">▮</span>
+      <span></span><span class="end">hobby</span>
+      <span class="end years">▯</span>
+    </div>
   </div>
 </section>
 
 <style lang="scss">
   section {
     width: 100%;
+    --tech-width: 30em;
   }
   .tech {
     display: flex;
-    width: 100%;
+
+    width: var(--tech-width);
+    margin-right: calc(var(--tech-width) / 10);
     flex-direction: row;
     justify-content: space-between;
     justify-items: space-between;
@@ -87,29 +104,57 @@
       overflow: hidden;
       border-bottom: dotted 1px currentColor;
     }
+
+    &:hover {
+      small {
+        opacity: 1;
+      }
+    }
   }
   hr {
     height: 1em;
     border: none;
   }
-  // .prefix {
-  //     width: 2.3em;
-  //     height: 2em;
-  //     line-height: 2em;
-  //     text-align: center;
-  //     font-size: 0.7em;
-  //     // background: var(--fg-color);
-  //     // color: var(--bg-color);
-  //     border-radius: 3px;
-  // }
+
   .years {
-    overflow: hidden;
+    overflow: visible;
     text-overflow: ellipsis;
     flex: 1 0 auto;
-    letter-spacing: 1.05ex;
-    font-size: 1.1em;
+    letter-spacing: 0.05em;
+    font-size: 1.5em;
+    position: relative;
+
+    small {
+      font-size: 0.5em;
+      display: inline-flex;
+      justify-content: center;
+      width: 5ex;
+      white-space: pre;
+      opacity: 0;
+      display: none;
+    }
+  }
+
+  .hobby-used {
+    position: absolute;
+    margin-left: 1ex;
   }
   .legend {
-    text-align: right;
+    border-radius: 0.5em;
+    margin: 1em 0;
+    width: var(--tech-width);
+    div {
+      display: grid;
+      grid-template-columns: max-content auto 2em;
+      align-items: center;
+      gap: 0.5em;
+      > span {
+        display: flex;
+        align-items: center;
+      }
+      .end {
+        justify-content: flex-end;
+      }
+    }
   }
 </style>
